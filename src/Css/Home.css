@@ -1,1 +1,84 @@
-//here you can start
+
+
+.main-image {
+    margin-top: 40px;
+    width: 80%;
+    
+}
+
+.horizontal-menu{
+    display: flex;
+    justify-content: space-around;    
+}
+
+.horizontal-menu-text{
+    width: 70%;
+    color: white;
+    text-align: left;
+    
+}
+
+.horizontal-image{
+    width: 100%;
+    flex-basis: auto;
+    
+}
+
+.horizontal-bottom{
+    align-items: center;
+    justify-content: center;
+    background-color: brown;
+    margin-bottom: 30px;
+    padding-bottom: 30%;
+}
+
+.info{
+    width: 80%;
+    background-color: rgb(246, 166, 78);
+    margin-left: 20%;
+    margin: 10px 180px;
+    text-align: left;
+    padding: 20px;
+}
+
+.info > button{
+    background-color: black;
+    color: white;
+    border-radius: 10%;
+    padding: 10px;
+}
+
+.texts {
+    text-align: left;
+    margin: 0 180px;
+}
+
+.shopnow{
+    display: flex;
+    margin: 10px 180px;
+    text-align: left;
+    
+}
+
+.shopnow-flex{
+    width: 50%;
+}
+
+.shopnow-flex > img{
+    width: 95%;
+}
+
+.top-categories{
+    display: flex;
+    width: 80%;
+    
+}
+
+.categories-image{
+    width: 80%;
+}
+
+.categories-image>img{
+    margin-left: 180px;
+    width: 90%;
+}
