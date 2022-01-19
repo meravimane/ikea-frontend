@@ -1,6 +1,18 @@
 import "../Css/ProductDetails.css";
 import { Image } from "antd";
+import React, { useState } from "react";
+import { Drawer } from "antd";
 export const ProductDetails = () => {
+  const [visible, setVisible] = useState(false);
+
+  const showDrawer = () => {
+    setVisible(true);
+  };
+
+  const onClose = () => {
+    setVisible(false);
+  };
+
   return (
     <div>
       <div className="routeTextPath">
@@ -106,7 +118,7 @@ export const ProductDetails = () => {
         <div>
           <h1>Product details</h1>
         </div>
-        <div>
+        <div onClick={showDrawer}>
           <span class="material-icons-outlined arrowPosition">
             arrow_forward
           </span>
@@ -302,6 +314,25 @@ export const ProductDetails = () => {
             </div>
           </div>
         </div>
+      </div>
+      <div>
+        <Drawer title="" placement="right" onClose={onClose} visible={visible}>
+          <h1>Product details</h1>
+          <p>MRP Rs.30,786 (inc. tax)</p>
+          <p>
+            Durable metal springs in the seat give the sofa a springy comfort,
+            allowing you to sit, relax and enjoy it for many years.
+          </p>
+          <div className="sideDrawerProductDetails">
+            <h3>Materials & care</h3>
+          </div>
+          <div className="sideDrawerProductDetails">
+            <h3>Sustainability & enviornment</h3>
+          </div>
+          <div className="sideDrawerProductDetails">
+            <h3>Assembly & documents</h3>
+          </div>
+        </Drawer>
       </div>
     </div>
   );
