@@ -46,6 +46,18 @@ export const HBRight = () => {
             <h1>Rooms</h1>
             <h1>New at IKEA</h1>
             <h1>All offers</h1>
+            <br />
+            <h3>Tips and inspiration</h3>
+            <h3>Currently at IKEA</h3>
+            <h3>Track your order</h3>
+            <br />
+            <br />
+            <h4>IKEA Family</h4>
+            <h4>IKEA Business</h4>
+            <h4>IKEA Restaurant</h4>
+            <h4>Our Stores</h4>
+            <h4>Design your room</h4>
+            <h4>Customer service</h4>
         </Drawer>
     </>
 }

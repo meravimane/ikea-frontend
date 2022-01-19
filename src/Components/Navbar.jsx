@@ -1,36 +1,15 @@
 // import { LoginDrawer } from "./LoginDrawer"
 import '../Css/navbar.css'
 
-import { AiOutlineShopping, BiUser, FiTruck } from './icons';
-import React, { useState } from 'react';
-import { Drawer, Button } from 'antd';
+import { AiOutlineShopping, FiTruck } from './icons';
+import { Button } from 'antd';
 import { HBRight } from './hbRight';
+import { LoginDrawer } from './LoginDrawer';
+
+
 
 
 export const Navbar = () => {
-
-    //User Drawer from right --start
-    const [visible, setVisible] = useState(false);
-
-    const showDrawer = () => {
-        setVisible(true);
-    };
-
-    const onClose = () => {
-        setVisible(false);
-    };
-
-    //User Drawer from right --end
-
-
-
-
-
-
-
-
-
-
 
     return <div id='navBar'>
 
@@ -65,9 +44,7 @@ export const Navbar = () => {
 
             <nav class="icons-nav">
 
-                <span><Button id='navbarLogo' type="primary" onClick={showDrawer}>
-                    <BiUser />
-                </Button></span>
+                <span> <LoginDrawer /></span>
 
                 <span><Button id='navbarLogo' type="primary" >
                     <FiTruck />
@@ -77,15 +54,6 @@ export const Navbar = () => {
                     <AiOutlineShopping />
                 </Button></span>
 
-                <>
-
-                    <Drawer title="" placement="right" onClose={onClose} visible={visible}>
-                        <div>Join IKEA Family <br />
-                            Get access to a number of member benefits. Enjoy guaranteed discounts, free workshops, exclusive previews and a lot more when you join. Its free!</div>
-                        <div>Some contents...</div>
-                        <div>Some contents...</div>
-                    </Drawer>
-                </>
 
 
                 {/* <a href="LogIn.html"><img src="img/user-icon.svg" alt="User Icon"></a>
