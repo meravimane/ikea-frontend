@@ -1,13 +1,13 @@
-import logo from './logo.svg';
-import './App.css';
-import { Product } from './Components/Products';
+import "./App.css";
+import { Cart } from "./Components/Cart";
+import { Footer } from "./Components/Footer";
+import { Product } from "./Components/Products";
 
 function App() {
   return (
     <div className="App">
-      <h1>Ikea Project</h1>
-
-      <Product/>
+      <Cart></Cart>
+      <Footer />
     </div>
   );
 }
