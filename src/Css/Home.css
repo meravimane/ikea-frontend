@@ -17,14 +17,17 @@
     margin: 0 180px;
     cursor: pointer;
 }
-/*
+
 .horizontal-menu-text{
-    width: 70%;
     color: white;
-    text-align: left;
-    
 }
-*/
+
+.horizontal-menu-text h2:hover{
+    color: #111111;
+    cursor: pointer;
+    text-decoration: underline;
+  }
+
 .horizontal-image{
     width: 100%;
     flex-basis: auto;
@@ -118,6 +121,13 @@
     cursor: pointer;
     
 }
+
+.top-categories-2 h2:hover{
+    color: #111111;
+    cursor: pointer;
+    text-decoration: underline;
+  }
+
 
 .categories-image{
     width: 80%;

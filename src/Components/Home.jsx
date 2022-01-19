@@ -29,7 +29,7 @@ export const Home = () => {
             </div>
             <div className="shopnow-flex">
                 <h2>KARISMATISK</h2>
-                <p>A collection by British fashion icon Zandra Rhodes that’s all about showing your personality in your space!</p>
+                <p>A collection by British fashion icon Zandra Rhodes thats all about showing your personality in your space!</p>
                 <img src={require("../assets/8f9d72376f667402d61c864a411873dc.jpeg")} alt="" />
             </div>
         </div>
@@ -250,6 +250,8 @@ export const Home = () => {
         <hr style={{ width: "80%", marginRight: "90px" }} />
         <br />
         <img src={require("../assets/foot.jpg")} alt="" />
+        <br />
+        <br />
     </div>
 }
 
