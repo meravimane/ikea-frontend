@@ -15,6 +15,7 @@
     display: flex;
     justify-content: space-evenly;  
     margin: 0 180px;
+    cursor: pointer;
 }
 /*
 .horizontal-menu-text{
@@ -27,6 +28,7 @@
 .horizontal-image{
     width: 100%;
     flex-basis: auto;
+    cursor: pointer;
     
 }
 
@@ -36,6 +38,7 @@
     background-color: brown;
     margin-bottom: 30px;
     padding-bottom: 30%;
+    cursor: pointer;
 } 
 
 .horizontal-flex{
@@ -65,6 +68,7 @@
     color: white;
     border-radius: 16px;
     padding: 10px;
+    cursor: pointer;
 }
 
 .sale-button{
@@ -72,6 +76,7 @@
     color: white;
     border-radius: 16px;
     padding: 10px;
+    cursor: pointer;
     
 }
 
@@ -93,20 +98,24 @@
 
 .shopnow-flex > img{
     width: 95%;
+    cursor: pointer;
 }
 
 .top-categories{
     display: flex;
     width: 80%;
     justify-content: space-evenly;
-    
+    cursor: pointer;
 }
+
+
 
 .top-categories-2{
     display: flex;
     width: 80%;
     margin: 0 13%;
     justify-content: space-evenly;
+    cursor: pointer;
     
 }
 
@@ -117,6 +126,7 @@
 .categories-image>img{
     margin-left: 180px;
     width: 90%;
+    cursor: pointer;
 }
 
 .card{
@@ -125,6 +135,6 @@
     justify-content: space-evenly;
 }
 
-.pinterest{
-    
+.pinterest>img{
+    cursor: pointer;
 }
