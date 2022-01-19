@@ -7,6 +7,7 @@ function HorizontalSlide() {
     return (
         <div>
             <div className='horizontal-menu'>
+
                 <div className='horizontal-flex'>
                     <img className='horizontal-image' src={require("../assets/8c34770edf4c7d36aa2188b93afa94b1.jpeg")} alt="" />
                     <div className='horizontal-bottom'>
@@ -18,7 +19,7 @@ function HorizontalSlide() {
 
                 </div>
 
-                <div className='horizontal-flex'>
+                {/* <div className='horizontal-flex'>
                     <img className='horizontal-image' src={require("../assets/c98c732a79a4467dfbccd2acc856996e.jpeg")} alt="" />
                     <div className='horizontal-bottom' style={{ backgroundColor: "#40455C" }}>
                         <h2 className='horizontal-menu-text'>Furniture under Rs.2999</h2>
@@ -27,7 +28,7 @@ function HorizontalSlide() {
                         </div>
                     </div>
 
-                </div>
+                </div> */}
 
 
                 <div className='horizontal-flex'>
@@ -44,7 +45,7 @@ function HorizontalSlide() {
 
                 <div className='horizontal-flex'>
                     <img className='horizontal-image' src={require("../assets/728a6c94af964c0bc3c723d3b67b5bb4.jpeg")} alt="" />
-                    <div className='horizontal-bottom' style={{ backgroundColor: "#700730" }}>
+                    <div className='horizontal-bottom' style={{ backgroundColor: "#069BA5" }}>
                         <h2 className='horizontal-menu-text'>Everyday essentials under Rs.499</h2>
                         <div className='horizontal-right-arrow'>
                             <Slider />
