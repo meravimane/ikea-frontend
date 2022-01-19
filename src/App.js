@@ -1,11 +1,12 @@
 import "./App.css";
-import { Cart } from "./Components/Cart";
+import "antd/dist/antd.css";
 import { Footer } from "./Components/Footer";
+import { ProductDetails } from "./Components/ProductDetails";
 
 function App() {
   return (
     <div className="App">
-      <Cart></Cart>
+      <ProductDetails></ProductDetails>
       <Footer />
     </div>
   );
