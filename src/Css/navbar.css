@@ -100,15 +100,25 @@ header{
     #userPalate{
       /* border: 1px solid yellow; */
       margin-top: 25%;
+      width: 230px;
     }
     #userName{
-      font-size: 28px;
+      font-size: 23px;
       font-weight: bolder;
       color: white;
       margin-top: 50%;
+     
+    }
+    #loginBtnDiv{
+      /* border: 1px solid red; */
+      margin-top: 30%;
+
+      
+      width: 50px;
+      /* position: flex-end; */
     }
     #loginBtn{
-      margin-left: 60% ;
+   
      font-size: 12px;
       text-align: center;
       
@@ -118,10 +128,12 @@ header{
 
     #loginDiv1{
       height: 150px;
+      display: flex;
       background-color: #0058A3;
       border: 1px solid rgb(182, 182, 182);
       box-sizing: border-box;
       padding-left: 10px;
+      box-sizing: border-box;
     }
     #loginDiv2{
       height: 110px;

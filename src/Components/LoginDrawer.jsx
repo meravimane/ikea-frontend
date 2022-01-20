@@ -5,6 +5,7 @@ import React, { useState } from 'react';
 import '../Css/navbar.css'
 
 import { Link } from 'react-router-dom';
+import { useAuth0 } from "@auth0/auth0-react";
 
 export const LoginDrawer = () => {
 
@@ -24,17 +25,29 @@ export const LoginDrawer = () => {
     const handleLogin = () => {
         setVisible(false)
     }
+    // ------------ 
+
+    const { user, isAuthenticated, logout } = useAuth0()
+    // console.log(user)
+
+
+
+
+
     return <>
         <span><Button id='navbarLogo' type="primary" onClick={showDrawer}>
-            <BiUser />
+            {!isAuthenticated ? <BiUser /> : <>{user.given_name}</>}
         </Button></span>
 
         <Drawer title="" placement="right" onClose={onClose} visible={visible}>
             <div id='loginDiv1'>
 
-                <div id='userPalate'>  <span id='userName'>Hej</span> <Link to="/login">  <Button id="loginBtn" onClick={() => { handleLogin() }}>Login</Button></Link>
+                <div id='userPalate'> {!isAuthenticated ? <span id='userName'>Hej</span> : <span id='userName'>{user.name}</span>}
                 </div>
+                <div id="loginBtnDiv"> {!isAuthenticated ? <Link to="/login">  <Button id="loginBtn" onClick={() => { handleLogin() }}>Login</Button></Link> : <Link to="/login">  <Button id="loginBtn" onClick={logout}>Logout</Button></Link>}  </div>
             </div>
+
+
             <div id='loginDiv2'> <h4 id='subheadingColor'> Join IKEA Family</h4>
                 <div id='contentDiv'>
                     <div>

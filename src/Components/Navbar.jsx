@@ -1,6 +1,7 @@
 // import { LoginDrawer } from "./LoginDrawer"
 import '../Css/navbar.css'
 
+
 import { AiOutlineShopping, FiTruck } from './icons';
 import { Button } from 'antd';
 import { HBRight } from './hbRight';
@@ -11,6 +12,7 @@ import { Link } from 'react-router-dom';
 
 
 export const Navbar = () => {
+
 
     return <div id='navBar'>
 
