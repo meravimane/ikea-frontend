@@ -3,6 +3,9 @@ import { Drawer, Button } from 'antd';
 import { BiUser } from './icons';
 import React, { useState } from 'react';
 import '../Css/navbar.css'
+
+import { Link } from 'react-router-dom';
+
 export const LoginDrawer = () => {
 
     //User Drawer from right --start
@@ -17,6 +20,10 @@ export const LoginDrawer = () => {
     };
 
     //User Drawer from right --end 
+
+    const handleLogin = () => {
+        setVisible(false)
+    }
     return <>
         <span><Button id='navbarLogo' type="primary" onClick={showDrawer}>
             <BiUser />
@@ -25,7 +32,7 @@ export const LoginDrawer = () => {
         <Drawer title="" placement="right" onClose={onClose} visible={visible}>
             <div id='loginDiv1'>
 
-                <div id='userPalate'>  <span id='userName'>Hej</span> <Button id="loginBtn">Login</Button>
+                <div id='userPalate'>  <span id='userName'>Hej</span> <Link to="/login">  <Button id="loginBtn" onClick={() => { handleLogin() }}>Login</Button></Link>
                 </div>
             </div>
             <div id='loginDiv2'> <h4 id='subheadingColor'> Join IKEA Family</h4>

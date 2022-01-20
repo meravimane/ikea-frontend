@@ -1,0 +1,105 @@
+#mainDiv{
+    display: flex;
+    width: 100%;
+    box-sizing: border-box;
+    height: 100%;
+
+}   
+#ikeaLogoL{
+margin-left: 34%;
+margin-top: 20px;
+}
+
+#textDiv{
+    width: 50%; 
+    /* border: 1px solid rgb(255, 0, 0); */
+    font-size: 15px;
+    background-color: #0058A3;
+    box-sizing: border-box;
+    height: 100vh;
+} 
+
+#formDiv{
+    width: 50%;
+    /* border: 1px solid yellow; */
+    height: 100vh;
+    padding-left: 20px;
+}
+
+
+
+#AuxiText{
+    margin-top: 25%;
+    margin-bottom: 25%;
+    width: 40%;
+    margin-left: 35%;
+    /* border: 1px solid red; */
+    color: white;
+    font-size: 12px;
+    text-decoration: none;
+}
+#AuxiText :hover{
+    text-decoration: underline;
+}
+#bottomText{
+    color: white;
+    font-size: 10px;
+    margin-left: 35%;
+    text-decoration: none;
+    margin-top: 20px;
+}
+#bottomText :hover{
+    text-decoration: underline;
+}
+#Lheading{
+    font-size: 23px;
+}
+#yellowtext{
+    color: yellow;
+}  
+
+
+
+
+#Input{
+    width: 300px;
+    border: none;
+    border-bottom: 1px solid grey;
+}
+#ContinueBtn{
+    width: 300px;
+    border-radius: 15px;
+    border: none;
+    margin-top: 10px;
+    height: 35px;
+    padding-bottom: 5px;
+    color: white;
+    font-size: 15px;
+    cursor: pointer;
+    background-color: #0058A3;
+}
+#BuyBtn{
+    width: 300px;
+    border-radius: 15px;
+    border: none;
+    margin-top: 10px;
+    height: 35px;
+    padding-bottom: 5px;
+    cursor: pointer;
+} 
+
+#inputDiv{
+
+    /* border: 1px solid red; */
+    margin-top: 30%;
+}
+#belowBtn{
+    /* border: 1px solid red; */
+    margin-top: 15%;
+    cursor: pointer;
+}
+
+
+
+
+

@@ -5,6 +5,7 @@ import { AiOutlineShopping, FiTruck } from './icons';
 import { Button } from 'antd';
 import { HBRight } from './hbRight';
 import { LoginDrawer } from './LoginDrawer';
+import { Link } from 'react-router-dom';
 
 
 
@@ -51,7 +52,7 @@ export const Navbar = () => {
                 </Button></span>
 
                 <span><Button id='navbarLogo' type="primary" >
-                    <AiOutlineShopping />
+                    <Link to="/cart"> <AiOutlineShopping /></Link>
                 </Button></span>
 
 
