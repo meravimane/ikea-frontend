@@ -1,9 +1,9 @@
 
 import '../Css/Products.css'
 import { Menu, Dropdown } from 'antd';
-import { DownOutlined } from '@ant-design/icons';
+import { useEffect, useState } from 'react';
 export const Product = () => {
-   
+    
     const topDescription = 
         {   
             "title": "Desks for home",
@@ -16,41 +16,7 @@ export const Product = () => {
             "descriptinn": "Look no further than our collection of desks for home if you want a space to work, study, or indulge in your hobby. You can choose our flexible BEKANT if you put in long hours from home. The electric switch on the underframe lets you adjust its height - set it to sit or standing positions, whichever makes you feel better. We’ve designed it with a contoured tabletop, so your arms have a place to rest. Our blue-green LOMMARP desk is the perfect example of traditional design and adds a personal touch to your bedroom or study area. Like the BEKANT, it also comes with a built-in cable management system to tuck those pesky wires away. There’s a pull out drawer to store your stationery too! Need more storage? Get the KALLAX combo to keep your speakers and consoles. And our solid-wood HEMNES looks elegant and comes with drawers and shelves. The top drawer is fitted with a small compartment for your pens and paper clips while the bottom one has a file frame to store your A4, legal and other documents."
         }
     
-
-    const allProducts = [
-        {
-            "Img": "https://www.ikea.com/in/en/images/products/micke-desk-white__0736018_pe740345_s5.jpg?f=s",
-            "hoverImg": "https://www.ikea.com/in/en/images/products/micke-desk-white__0851508_pe565256_s5.jpg?f=xxs",
-            "title": "MICKE",
-            "dimensions": "Desk105x50 cm (41 3/8x19 5/8\" )",
-            "price": "7,690",
-            "sold": "43",
-            "varient": [
-                {"img":"https://www.ikea.com/in/en/images/products/micke-desk-black-brown__0735981_pe740299_s5.jpg?f=xu"},
-                {"img": "https://www.ikea.com/in/en/images/products/micke-desk-black-brown__0735981_pe740299_s5.jpg?f=xu"},
-                {"img": "https://www.ikea.com/in/en/images/products/micke-desk-anthracite-red__0921882_pe787985_s5.jpg?f=xu"},
-                {"img": "https://www.ikea.com/in/en/images/products/micke-desk-white-anthracite__0921886_pe787989_s5.jpg?f=xu"},
-            ]
-            
-        },
-        
-        // {
-        //     "Img": "",
-        //     "hoverImg": "",
-        //     "tital": "",
-        //     "dimensions": "",
-        //     "price": "7,690",
-        //     "sold": "43",
-        //     "varient": {
-        //         "img":"",
-        //         "img": "",
-        //         "img": "",
-        //         "img": "",
-        //     }
-        // }
-    ]
-
-
+    
     const relatedCategories = [
         {
             "img": "https://www.ikea.com/global/assets/navigation/images/table-desk-systems-47423.jpeg?imwidth=400",
@@ -82,9 +48,66 @@ export const Product = () => {
         }
     ]
 
+    
+    const [filter, setFilter] = useState("def");
+    const [allProducts, setallProducts] = useState([]);
+    useEffect(()=>(
+        getProducts()
+    ),[])
+
+
+    const onClick = ({key}) => {
+        setFilter(key)
+        createFilter();
+       
+    }
+
+    const getProducts = (id) => {   
+        fetch(`http://localhost:1234/products`)
+            .then((d) => d.json())
+          .then((res) => {
+           // console.log("res", res)
+            setallProducts(res)
+        });
+    }
+    const handleProduct = (e) => {
+     //   console.log("handlingProduct",e);
+    }
+    
+   
+    const createFilter = () => {
+
+        if (filter === "def") {
+            setallProducts(allProducts);
+        }
+
+        if (filter === "prLowToHigh") {
+            const payload = allProducts.map((product) => product).sort((a, b) => a.price - b.price);
+            setallProducts(payload);
+        }
+
+
+        if (filter === "prHighToLow") {
+            const payload = allProducts.map((product) => product).sort((a, b) =>  b.price-a.price);
+            setallProducts(payload);
+        }
+
+        if (filter === "name") {
+            const payload = allProducts.map((product) => product).sort((a, b) => a.title.localeCompare(b.title));
+            setallProducts(payload);
+        }
+          
+        if (filter === "mostPopular") {
+            const payload = allProducts.map((product) => product).sort((a, b) =>  b.sold-a.sold);
+            setallProducts(payload);
+        }
+           
+    }
+    
+
     const sort = (
-        <Menu>
-          <Menu.Item key="bestMatch">Best match</Menu.Item>
+        <Menu onClick={onClick}>
+          <Menu.Item key="def">Best match</Menu.Item>
           <Menu.Item key="prLowToHigh">Price: low to high</Menu.Item>
           <Menu.Item key="prHighToLow">Price: high to low</Menu.Item>
           <Menu.Item key="name">Name</Menu.Item>
@@ -96,17 +119,17 @@ export const Product = () => {
     
     
     const price = (
-        <Menu>
-          <Menu.Item key="₹0_4,9991">₹0 - 4,9991</Menu.Item>
-          <Menu.Item key="₹5,000_9,9995">₹5,000 - 9,9995</Menu.Item>
-          <Menu.Item key="₹10,000_14,99918">₹10,000 - 14,99918</Menu.Item>
-          <Menu.Item key="₹15,000_19,99923">₹15,000 - 19,99923</Menu.Item>
-          <Menu.Item key="₹20,000+">₹20,000+</Menu.Item>
+        <Menu onClick={onClick}>
+          <Menu.Item key="0_4991">₹0 - 4999</Menu.Item>
+          <Menu.Item key="5000_99995">₹5,000 - 9,9995</Menu.Item>
+          <Menu.Item key="10000_1499918">₹10,000 - 14,99918</Menu.Item>
+          <Menu.Item key="15000_1999923">₹15,000 - 19,99923</Menu.Item>
+          <Menu.Item key="20000+">₹20,000+</Menu.Item>
         </Menu>
     );
 
     const material = (
-        <Menu>
+        <Menu onClick={onClick}>
           <Menu.Item key="wood">Wood</Menu.Item>
           <Menu.Item key="metal">Metal</Menu.Item>
           <Menu.Item key="upholstered">Upholstered</Menu.Item>
@@ -116,7 +139,7 @@ export const Product = () => {
     );
 
     const color = (
-        <Menu>
+        <Menu onClick={onClick}>
             <Menu.Item key="blue">Blue </Menu.Item>
             <Menu.Item key="white">White </Menu.Item>
             <Menu.Item key="beige">Beige</Menu.Item>
@@ -125,6 +148,17 @@ export const Product = () => {
             <Menu.Item key="black">black</Menu.Item>
         </Menu>
     );
+
+    const alltype = (
+        <Menu onClick={onClick}>
+            <Menu.Item key="blue">Sort </Menu.Item>
+            <Menu.Item key="white">Price </Menu.Item>
+            <Menu.Item key="beige">Material</Menu.Item>
+            <Menu.Item key="brown">Color</Menu.Item>
+            
+        </Menu>
+    );
+
     
     return (
         <div id="mainProductsDiv">
@@ -141,19 +175,19 @@ export const Product = () => {
             <div>
                 <div id="productFilter">
                     <Dropdown className="" overlay={sort} trigger={['click']}>
-                        <a className="ant-dropdown-link" onClick={e => e.preventDefault()}><button>Sort<i class="fas fa-angle-down fa-lg"></i></button></a>
+                        <a className="ant-dropdown-link" onClick={e => e.preventDefault()}><button>Sort<i className="fas fa-angle-down fa-lg"></i></button></a>
                     </Dropdown>
                     <Dropdown className="" overlay={price} trigger={['click']}>
-                        <a className="ant-dropdown-link" onClick={e => e.preventDefault()}><button>Price  <i class="fas fa-angle-down fa-lg"></i></button></a>
+                        <a className="ant-dropdown-link" onClick={e => e.preventDefault()}><button>Price  <i className="fas fa-angle-down fa-lg"></i></button></a>
                     </Dropdown>
                     <Dropdown className="" overlay={color} trigger={['click']}>
-                       <a className="ant-dropdown-link" onClick={e => e.preventDefault()}><button>Color  <i class="fas fa-angle-down fa-lg"></i></button></a>
+                       <a className="ant-dropdown-link" onClick={e => e.preventDefault()}><button>Color  <i className="fas fa-angle-down fa-lg"></i></button></a>
                     </Dropdown>
                     <Dropdown className="" overlay={material} trigger={['click']}>
-                        <a className="ant-dropdown-link" onClick={e => e.preventDefault()}><button>Material  <i class="fas fa-angle-down fa-lg"></i></button></a>
+                        <a className="ant-dropdown-link" onClick={e => e.preventDefault()}><button>Material  <i className="fas fa-angle-down fa-lg"></i></button></a>
                     </Dropdown>
-                    <Dropdown className="" overlay={price} trigger={['click']}>
-                        <a className="ant-dropdown-link" onClick={e => e.preventDefault()}> <button>All filters  <i class="fas fa-filter"></i> </button></a>
+                    <Dropdown className="" overlay={alltype} trigger={['click']}>
+                        <a className="ant-dropdown-link" onClick={e => e.preventDefault()}> <button>All filters  <i className="fas fa-filter"></i> </button></a>
                     </Dropdown>
                 </div>
 
@@ -170,110 +204,26 @@ export const Product = () => {
                 
                 {allProducts.map((e) => (
                 
-                    <div id="products">
-                        <img className="mainImg" src={e.Img} alt="" />
+                    <div id="products" key={e.id}>
+                        <img className="mainImg" src={e.Img} onClick={()=>handleProduct(e)} onMouseOver={(p =>(p.currentTarget.src = e.hoverImg))}  onMouseOut={(p =>(p.currentTarget.src = e.Img))} alt="" />
                         <h4>{e.title }</h4>
                         <p>{e.dimensions}</p>
-                        <div className="price"> 
-                            <p>Rs.</p> <h3>{e.price}</h3>
+                        <div className="price">
+                            <p>Rs.</p> <h3>{e.price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')}</h3>
                         </div>
                         <div className='productRating'>
-                            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>  <p>({e.sold})</p>
+                            <i className="fas fa-star"></i><i className="fas fa-star"></i><i className="fas fa-star"></i><i className="fas fa-star"></i>  <p>({e.sold})</p>
                         </div>
                         <p>More varients</p>
-                        {console.log("e.varient",e.varient)}
                         <div className="moreVarient">
-                            {e.varient.map((c) => (
-                                <img src={c.img} alt="" />
+                            {e.varient.map((c,i) => (
+                                <img key={i} src={c.img} alt="" />
                             ))}
                         </div>
                     </div>
 
                 ))}
                 
-
-                <div id="products">
-                    <img className="mainImg" src="https://www.ikea.com/in/en/images/products/micke-desk-white__0736018_pe740345_s5.jpg?f=s" alt="" />
-                    <h4>MICKE</h4>
-
-                    <p>Desk105x50 cm (41 3/8x19 5/8 ")</p>
-
-                    <div className="price"> 
-                        <p>Rs.</p> <h3>7,690</h3>
-                    </div>
-
-                    <div className='productRating'>
-                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>  <p>(45)</p>
-                    </div>
-                    <p>More varients</p>
-
-                    <div className="moreVarient">
-                        <img src="https://www.ikea.com/in/en/images/products/micke-desk-white__0736018_pe740345_s5.jpg?f=xu" alt="" /> <img src="https://www.ikea.com/in/en/images/products/micke-desk-black-brown__0735981_pe740299_s5.jpg?f=xu" alt="" /> <img src="https://www.ikea.com/in/en/images/products/micke-desk-anthracite-red__0921882_pe787985_s5.jpg?f=xu" alt="" />
-                    </div>
-                </div>
-
-                <div id="products">
-                    <img className="mainImg" src="https://www.ikea.com/in/en/images/products/micke-desk-white__0736018_pe740345_s5.jpg?f=s" alt="" />
-
-                    <h4>MICKE</h4>
-
-                    <p>Desk105x50 cm (41 3/8x19 5/8 ")</p>
-
-                    <div className="price"> 
-                        <p>Rs.</p> <h3>7,690</h3>
-                    </div>
-
-                    <div className='productRating'>
-                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>  <p>(45)</p>
-                    </div>
-                    <p>More varients</p>
-
-                    <div className="moreVarient">
-                        <img src="https://www.ikea.com/in/en/images/products/micke-desk-white__0736018_pe740345_s5.jpg?f=xu" alt="" /> <img src="https://www.ikea.com/in/en/images/products/micke-desk-black-brown__0735981_pe740299_s5.jpg?f=xu" alt="" /> <img src="https://www.ikea.com/in/en/images/products/micke-desk-anthracite-red__0921882_pe787985_s5.jpg?f=xu" alt="" />
-                    </div>
-                </div>
-
-                <div id="products">
-                    <img className="mainImg" src="https://www.ikea.com/in/en/images/products/micke-desk-white__0736018_pe740345_s5.jpg?f=s" alt="" />
-
-                    <h4>MICKE</h4>
-
-                    <p>Desk105x50 cm (41 3/8x19 5/8 ")</p>
-
-                    <div className="price"> 
-                        <p>Rs.</p> <h3>7,690</h3>
-                    </div>
-
-                    <div className='productRating'>
-                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>  <p>(45)</p>
-                    </div>
-                    <p>More varients</p>
-
-                    <div className="moreVarient">
-                        <img src="https://www.ikea.com/in/en/images/products/micke-desk-white__0736018_pe740345_s5.jpg?f=xu" alt="" /> <img src="https://www.ikea.com/in/en/images/products/micke-desk-black-brown__0735981_pe740299_s5.jpg?f=xu" alt="" /> <img src="https://www.ikea.com/in/en/images/products/micke-desk-anthracite-red__0921882_pe787985_s5.jpg?f=xu" alt="" />
-                    </div>
-                </div>
-
-                <div id="products">
-                    <img className="mainImg" src="https://www.ikea.com/in/en/images/products/micke-desk-white__0736018_pe740345_s5.jpg?f=s" alt="" />
-
-                    <h4>MICKE</h4>
-
-                    <p>Desk105x50 cm (41 3/8x19 5/8 ")</p>
-
-                    <div className="price"> 
-                        <p>Rs.</p> <h3>7,690</h3>
-                    </div>
-
-                    <div className='productRating'>
-                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>  <p>(45)</p>
-                    </div>
-                    <p>More varients</p>
-
-                    <div className="moreVarient">
-                        <img src="https://www.ikea.com/in/en/images/products/micke-desk-white__0736018_pe740345_s5.jpg?f=xu" alt="" /> <img src="https://www.ikea.com/in/en/images/products/micke-desk-black-brown__0735981_pe740299_s5.jpg?f=xu" alt="" /> <img src="https://www.ikea.com/in/en/images/products/micke-desk-anthracite-red__0921882_pe787985_s5.jpg?f=xu" alt="" />
-                    </div>
-                </div>
 
             </div>
             
@@ -284,8 +234,8 @@ export const Product = () => {
                 <h3>Related categories</h3>
                
                 <div className='relatedProductImages'>
-                    {relatedCategories.map((e) => (
-                        <div id="relatedProductImg">
+                    {relatedCategories.map((e,i) => (
+                        <div id="relatedProductImg" key={i}>
                             <img src={e.img} alt="" /> <p>{e.title}</p>
                         </div>
                     ))}
@@ -296,15 +246,16 @@ export const Product = () => {
         
 
             <div id="bottomProductDescription">
-                
-                <h2>Work, Study Or Storage - We’ve Got A Desk For It All!</h2>
-                <div>
-                    <p>Look no further than our collection of desks for home if you want a space to work, study, or indulge in your hobby. You can choose our flexible BEKANT if you put in long hours from home. The electric switch on the underframe lets you adjust its height - set it to sit or standing positions, whichever makes you feel better. We’ve designed it with a contoured tabletop, so your arms have a place to rest. Our blue-green LOMMARP desk is the perfect example of traditional design and adds a personal touch to your bedroom or study area. Like the BEKANT, it also comes with a built-in cable management system to tuck those pesky wires away. There’s a pull out drawer to store your stationery too! Need more storage? Get the KALLAX combo to keep your speakers and consoles. And our solid-wood HEMNES looks elegant and comes with drawers and shelves. The top drawer is fitted with a small compartment for your pens and paper clips while the bottom one has a file frame to store your A4, legal and other documents.</p>
-               </div>
+               
+                <>
+                    <h2>{bottomDescription.headline}</h2>
+                    <div>
+                        <p>{ bottomDescription.descriptinn}</p>
+                    </div>
+                </>
                
             </div>
 
-           {/* <img src="https://img.icons8.com/ios/14/000000/expand-arrow--v1.png" /> */}
         </div>
 
         

@@ -78,6 +78,11 @@
 }
 .moreVarient img {
   width: 10.9%;
+  cursor: pointer;
+}
+
+.moreVarient :hover {
+  border: 1px solid blue;
 }
 
 #relatedProduct {
