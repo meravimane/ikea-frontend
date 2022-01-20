@@ -2,6 +2,7 @@
 import '../Css/Products.css'
 import { Menu, Dropdown } from 'antd';
 import { useEffect, useState } from 'react';
+import { Link, Navigate } from 'react-router-dom';
 export const Product = () => {
     
     const topDescription = 
@@ -70,8 +71,13 @@ export const Product = () => {
             setallProducts(res)
         });
     }
+
     const handleProduct = (e) => {
-     //   console.log("handlingProduct",e);
+
+        console.log(e._id)
+        return  <Link to={`/productdetails/${e._id}`}>Login</Link>
+
+        //<Navigate to={`/productdetails/${e._id}`} />
     }
     
    
@@ -205,7 +211,7 @@ export const Product = () => {
                 {allProducts.map((e) => (
                 
                     <div id="products" key={e.id}>
-                        <img className="mainImg" src={e.Img} onClick={()=>handleProduct(e)} onMouseOver={(p =>(p.currentTarget.src = e.hoverImg))}  onMouseOut={(p =>(p.currentTarget.src = e.Img))} alt="" />
+                        <Link to={`/productdetails/${e._id}`}><img className="mainImg" src={e.Img} onClick={()=>handleProduct(e)} onMouseOver={(p =>(p.currentTarget.src = e.hoverImg))}  onMouseOut={(p =>(p.currentTarget.src = e.Img))} alt="" /></Link>
                         <h4>{e.title }</h4>
                         <p>{e.dimensions}</p>
                         <div className="price">
