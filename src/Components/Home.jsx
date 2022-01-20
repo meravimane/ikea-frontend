@@ -10,7 +10,7 @@ const { Meta } = Card;
 
 export const Home = () => {
     return <div className="main">
-        <img className="main-image" src={require("../assets/ddcb9514d22ed87edbb57ceeaaed2c27.avif")} alt="img" />
+        <img className="main-image" src="https://www.ikea.com/images/2e/81/2e81f9ceba3c3a178bccf1be5b036747.png?f=xxxl" alt="img" />
         <HorizontalSlide />
         <div className="info">
             <h1>Come visit us at IKEA Worli City Store!</h1>
@@ -154,7 +154,7 @@ export const Home = () => {
         <br />
         <h1 style={{ marginRight: 450 }}>Shop products for a more sustainable home</h1>
         <br />
-        <div className="top-categories" >
+        <div className="top-categories-3" >
             <div className="categories-image">
                 <img src={require("../assets/15.jpg")} alt="" />
             </div>
@@ -169,6 +169,12 @@ export const Home = () => {
             </div>
             <div className="categories-image">
                 <img src={require("../assets/19.jpg")} alt="" />
+            </div>
+            <div className="categories-image">
+                <img src={require("../assets/20.jpg")} alt="" />
+            </div>
+            <div className="categories-image">
+                <img src={require("../assets/21.jpg")} alt="" />
             </div>
         </div>
         <br />
@@ -254,6 +260,5 @@ export const Home = () => {
         <br />
     </div>
 }
-
 
 

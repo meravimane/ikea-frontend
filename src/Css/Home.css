@@ -3,50 +3,60 @@
 .main-image {
     margin-top: 40px;
     width: 80%;
-    
+    margin-left: 75px;    
 }
+
+/* width */
+::-webkit-scrollbar {
+  height: 8px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #888; 
+}
+ 
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #000; 
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #000; 
+}
+
 
 #components-grid-demo-flex-align [class~='ant-row'] {
   background: rgba(128, 128, 128, 0.08);
 }
 
+
+
  .horizontal-menu{
-     width: 80%;
+    width: 80%;
     display: flex;
-    justify-content: space-evenly;  
-    margin: 0 180px;
+    margin: 0 13%;
+    margin-top: 11px;
+    padding-bottom: 10px;
+    overflow-x:scroll;
+
     cursor: pointer;
 }
 
-.horizontal-menu-text{
-    color: white;
-}
-
-.horizontal-menu-text h2:hover{
-    color: #111111;
-    cursor: pointer;
-    text-decoration: underline;
-  }
-
-.horizontal-image{
-    width: 100%;
-    flex-basis: auto;
-    cursor: pointer;
-    
-}
-
-.horizontal-bottom{
-    align-items: center;
-    justify-content: center;
-    background-color: brown;
-    margin-bottom: 30px;
-    padding-bottom: 30%;
-    cursor: pointer;
-} 
-
-.horizontal-flex{
+.horizontal-flex>img{
     width: 350px;
-    
+}
+
+.horizontal-flex>div{
+    width: 350px;
+    height: 150px;
+    margin: 0 10px;
+}
+.horizontal-flex>h2{
+    width: 350px;
+    height: 150px;
+    background-color: white;
 }
 
 .info{
@@ -96,19 +106,22 @@
 }
 
 .shopnow-flex{
-    width: 50%;
+    width: 80%;
+    margin: 10px;
 }
 
 .shopnow-flex > img{
-    width: 95%;
+    width: 100%;
     cursor: pointer;
 }
 
 .top-categories{
     display: flex;
     width: 80%;
-    justify-content: space-evenly;
     cursor: pointer;
+    margin: 0 140px;
+    align-items: center;
+    overflow-x:scroll;
 }
 
 
@@ -129,15 +142,9 @@
   }
 
 
-.categories-image{
-    width: 80%;
-}
 
-.categories-image>img{
-    margin-left: 180px;
-    width: 90%;
-    cursor: pointer;
-}
+
+
 
 .card{
     margin-left: 10%;
@@ -145,6 +152,30 @@
     justify-content: space-evenly;
 }
 
+.top-categories-3{
+    display: flex;
+    width: 80%;
+    margin: 0 140px;
+    overflow-x:scroll;
+    cursor: pointer;
+    align-items: center;
+    
+}
+
+.categories-image{
+    margin: 10px;
+}
+
 .pinterest>img{
+    margin-top: 10px;
     cursor: pointer;
 }
+
+.button-flex{
+    width: 80%;
+    display:inline-flex;
+    overflow-x:scroll;
+    padding: 1%;
+
+}
+
