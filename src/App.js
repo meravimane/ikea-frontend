@@ -1,12 +1,22 @@
 import "./App.css";
 import "antd/dist/antd.css";
 import { Footer } from "./Components/Footer";
+import { PaymentPage } from "./Components/PaymentPage";
 import { ProductDetails } from "./Components/ProductDetails";
+import { Cart } from "./Components/Cart";
+import { Route, Routes } from "react-router-dom";
 
 function App() {
   return (
     <div className="App">
-      <ProductDetails></ProductDetails>
+      <Routes>
+        <Route path="/cart" element={<Cart></Cart>}></Route>
+        <Route path="/payment" element={<PaymentPage></PaymentPage>}></Route>
+        <Route
+          path="/productdetails"
+          element={<ProductDetails></ProductDetails>}
+        ></Route>
+      </Routes>
       <Footer />
     </div>
   );

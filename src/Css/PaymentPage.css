@@ -1,0 +1,96 @@
+.paymentPageLogoContainer {
+  width: 74%;
+  margin: auto;
+  margin-bottom: 50px;
+  margin-top: 20px;
+}
+.mainPaymentPageContainer {
+  display: flex;
+  width: 70%;
+  margin: auto;
+}
+.mainPaymentPageContainer > div {
+  flex-basis: 50%;
+}
+.titleBoldPaymentPage {
+  font-weight: 700;
+  margin-bottom: 20px;
+}
+.idProofPaymentPage {
+  font-size: 13px;
+  padding-bottom: 40px;
+  border-bottom: 1px solid rgba(202, 202, 202, 202);
+  margin-bottom: 40px;
+}
+.addressPaymentPage {
+  font-size: 13px;
+}
+.parkingPaymentPage {
+  font-style: italic;
+  font-size: 13px;
+  width: 350px;
+}
+.mapDivPaymentPage {
+  margin-top: 20px;
+  border-bottom: 1px solid rgba(202, 202, 202, 202);
+  padding-bottom: 40px;
+  margin-bottom: 20px;
+}
+.namePanPaymentPage {
+  font-weight: 700;
+  font-size: 16px;
+  color: rgba(202, 202, 202, 202);
+}
+.inputLablePaymentPage {
+  margin: 0;
+}
+.inputPaymentPage {
+  width: 300px;
+  height: 25px;
+  margin-bottom: 10px;
+}
+.checkoutBtnPaymentPage {
+  background-color: #0274cb;
+  color: white;
+  border: none;
+  height: 30px;
+  width: 90px;
+  border-radius: 2px;
+  font-weight: 500;
+  margin-top: 20px;
+  margin-bottom: 40px;
+  cursor: pointer;
+}
+.orderSummaryPaymentPage {
+  margin-left: 30px;
+  padding: 15px;
+  border: 1px solid rgba(202, 202, 202, 202);
+}
+.productsPaymentPage {
+  display: flex;
+}
+.productsPaymentPage > div {
+  flex-basis: 50%;
+  border-bottom: 1px solid rgba(202, 202, 202, 202);
+  margin-bottom: 15px;
+  padding-bottom: 10px;
+}
+.productsPaymentPage > div:nth-child(1) > img {
+  width: 50%;
+}
+.subTotalPaymentPage {
+  display: flex;
+}
+.subTotalPaymentPage > div {
+  flex-basis: 50%;
+}
+.subTotalPaymentPage > div:nth-child(2) {
+  text-align: end;
+}
+.footerTextPaymentPage {
+  width: 71%;
+  margin: auto;
+  margin-bottom: 40px;
+  color: rgba(202, 202, 202, 202);
+  font-size: 13px;
+}
