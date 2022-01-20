@@ -5,6 +5,7 @@ import { PaymentPage } from "./Components/PaymentPage";
 import { ProductDetails } from "./Components/ProductDetails";
 import { Cart } from "./Components/Cart";
 import { Route, Routes } from "react-router-dom";
+import { Product } from "./Components/Products";
 
 function App() {
   return (
@@ -16,6 +17,12 @@ function App() {
           path="/productdetails/:id"
           element={<ProductDetails></ProductDetails>}
         ></Route>
+
+          <Route
+          path="/products"
+          element={<Product/>}
+        ></Route>
+
         <Route
           path="*"
           element={
@@ -25,6 +32,7 @@ function App() {
           }
         ></Route>
       </Routes>
+
       <Footer />
     </div>
   );
