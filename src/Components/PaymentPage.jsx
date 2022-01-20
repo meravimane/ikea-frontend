@@ -1,6 +1,8 @@
 import { Input, Select, Modal } from "antd";
 import { useEffect, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import "../Css/PaymentPage.css";
+import { fetchCartItems, getCartLoading } from "../Features/Cart/actions";
 
 export const PaymentPage = () => {
   const { Option } = Select;
@@ -18,6 +20,20 @@ export const PaymentPage = () => {
   const handleCancel = () => {
     setIsModalVisible(false);
   };
+
+  const dispatch = useDispatch();
+  useEffect(() => {
+    dispatch(getCartLoading());
+    dispatch(fetchCartItems());
+  }, []);
+
+  const { cartData, loading } = useSelector((state) => ({
+    cartData: state.cartReducer.cartData,
+    loading: state.cartReducer.loading,
+  }));
+
+  console.log(cartData);
+  console.log(loading);
 
   const data = [
     {
@@ -68,14 +84,14 @@ export const PaymentPage = () => {
   const [subTotal, setSubtotal] = useState(0);
   const getSubtotal = () => {
     let ans = 0;
-    data.forEach((el) => {
-      ans += Number(el.productprice);
+    cartData.forEach((el) => {
+      ans += Number(el.product.price);
     });
     setSubtotal(ans);
   };
   useEffect(() => {
     getSubtotal();
-  }, [data]);
+  }, [cartData]);
 
   return (
     <div>
@@ -222,16 +238,16 @@ export const PaymentPage = () => {
           <div className="orderSummaryPaymentPage">
             <h2 className="titleBoldPaymentPage">Order summary</h2>
             <div>
-              {data.map((e) => {
+              {cartData.map((e) => {
                 return (
-                  <div key={e.id} className="productsPaymentPage">
+                  <div key={e._id} className="productsPaymentPage">
                     <div>
-                      <img src={e.productimg} alt="productImg"></img>
+                      <img src={e.product.Img} alt="productImg"></img>
                     </div>
                     <div>
-                      <h4>{e.productname}</h4>
-                      <p>{e.category}</p>
-                      <p>{e.productprice}</p>
+                      <h4>{e.product.title}</h4>
+                      <p>{e.product.dimensions}</p>
+                      <p>Rs.{e.product.price.toLocaleString()}.00</p>
                     </div>
                   </div>
                 );

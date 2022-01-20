@@ -13,8 +13,16 @@ function App() {
         <Route path="/cart" element={<Cart></Cart>}></Route>
         <Route path="/payment" element={<PaymentPage></PaymentPage>}></Route>
         <Route
-          path="/productdetails"
+          path="/productdetails/:id"
           element={<ProductDetails></ProductDetails>}
+        ></Route>
+        <Route
+          path="*"
+          element={
+            <h1 style={{ marginTop: "20px", marginBottom: "70px" }}>
+              404 Page Not found...
+            </h1>
+          }
         ></Route>
       </Routes>
       <Footer />

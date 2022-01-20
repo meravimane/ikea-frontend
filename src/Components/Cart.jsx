@@ -2,9 +2,31 @@ import "../Css/Cart.css";
 import "antd/dist/antd.css";
 import { Input, Select } from "antd";
 import { useEffect, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import {
+  deleteCartItems,
+  fetchCartItems,
+  getCartLoading,
+} from "../Features/Cart/actions";
+import { Link } from "react-router-dom";
 
 export const Cart = () => {
   const { Option } = Select;
+
+  const dispatch = useDispatch();
+  useEffect(() => {
+    dispatch(getCartLoading());
+    dispatch(fetchCartItems());
+  }, []);
+
+  const { cartData, loading } = useSelector((state) => ({
+    cartData: state.cartReducer.cartData,
+    loading: state.cartReducer.loading,
+  }));
+
+  console.log(cartData);
+  console.log("loading", loading);
+
   const data = [
     {
       productimg:
@@ -55,14 +77,15 @@ export const Cart = () => {
   const [deliveryHome, setDeliveryHome] = useState(true);
   const getSubtotal = () => {
     let ans = 0;
-    data.forEach((el) => {
-      ans += Number(el.productprice);
+    cartData.forEach((el) => {
+      ans += Number(el.product.price);
     });
     setSubtotal(ans);
   };
+
   useEffect(() => {
     getSubtotal();
-  }, [data]);
+  }, [cartData]);
 
   const handleClickHome = () => {
     setDeliveryHome(true);
@@ -71,29 +94,38 @@ export const Cart = () => {
     setDeliveryHome(false);
   };
 
-  return (
+  return loading ? (
+    <img
+      className="loadingImage"
+      src="https://cdn140.picsart.com/301568770156201.gif?to=crop&type=webp&r=-1x-1&q=95&width=1920"
+      alt="loding"
+    ></img>
+  ) : (
     <div>
       <div className="cartHeader">
         <h1>Shopping Cart</h1>
         <div className="cartProductsDiv">
-          {data.map((e) => (
-            <div className="cartProduct" key={e.id}>
+          {cartData.map((e) => (
+            <div className="cartProduct" key={e._id}>
               <div>
-                <img src={e.productimg} alt="product img"></img>
+                <img src={e.product.Img} alt="product img"></img>
               </div>
               <div>
-                <h3>{e.productname}</h3>
-                <p>{e.category}</p>
-                <p>{e.color}</p>
-                <p>{e.size}</p>
-                <p>{e.weight}</p>
+                <h3>{e.product.title}</h3>
+                <p>{e.product.dimensions}</p>
+                <p>{e.product.sold} in stock</p>
               </div>
               <div className="cartButtonsDiv">
                 <div>
-                  <h3>Rs.{Number(e.productprice).toLocaleString()}.00</h3>
+                  <h3>Rs.{Number(e.product.price).toLocaleString()}.00</h3>
                 </div>
                 <div>
-                  <button className="cartDeleteButton">
+                  <button
+                    className="cartDeleteButton"
+                    onClick={() => {
+                      dispatch(deleteCartItems(e._id));
+                    }}
+                  >
                     <span className="material-icons-outlined deleteicon">
                       delete
                     </span>
@@ -180,7 +212,9 @@ export const Cart = () => {
               </div>
               <div>
                 {" "}
-                <button className="deliveryButton">Click & Collect</button>
+                <Link to="/payment">
+                  <button className="deliveryButton">Click & Collect</button>
+                </Link>
               </div>
             </div>
           )}

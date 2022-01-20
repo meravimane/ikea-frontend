@@ -1,9 +1,30 @@
 import "../Css/ProductDetails.css";
 import { Image } from "antd";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Drawer } from "antd";
+import { Link, useParams } from "react-router-dom";
+import {
+  getDetailsByApi,
+  getProductLoading,
+} from "../Features/ProductDetails/actions";
+import { sendCartItems } from "../Features/Cart/actions";
+import { useDispatch } from "react-redux";
+import { useSelector } from "react-redux";
+
 export const ProductDetails = () => {
   const [visible, setVisible] = useState(false);
+  const [visible1, setVisible1] = useState(false);
+  const { id } = useParams();
+  const dispatch = useDispatch();
+  useEffect(() => {
+    dispatch(getProductLoading());
+    dispatch(getDetailsByApi(id));
+  }, []);
+
+  const { data, loading } = useSelector((state) => ({
+    data: state.detailsReducer.data,
+    loading: state.detailsReducer.loading,
+  }));
 
   const showDrawer = () => {
     setVisible(true);
@@ -13,7 +34,22 @@ export const ProductDetails = () => {
     setVisible(false);
   };
 
-  return (
+  const showDrawer1 = () => {
+    setVisible1(true);
+    dispatch(sendCartItems(data._id));
+  };
+
+  const onClose1 = () => {
+    setVisible1(false);
+  };
+
+  return loading ? (
+    <img
+      className="loadingImage"
+      src="https://cdn140.picsart.com/301568770156201.gif?to=crop&type=webp&r=-1x-1&q=95&width=1920"
+      alt="loding"
+    ></img>
+  ) : (
     <div>
       <div className="routeTextPath">
         <p>
@@ -25,28 +61,16 @@ export const ProductDetails = () => {
       <div className="productDetailsDiv">
         <div className="productImagesDiv">
           <div>
-            <Image
-              src="https://www.ikea.com/in/en/images/products/gammalbyn-2-seat-sofa-brown__1030890_pe836424_s5.jpg?f=s"
-              alt="sofa"
-            ></Image>
+            <Image src={data.productDetailPage[0].img} alt="sofa"></Image>
           </div>
           <div>
-            <Image
-              src="https://www.ikea.com/in/en/images/products/gammalbyn-2-seat-sofa-brown__1030891_pe836423_s5.jpg?f=s"
-              alt="sofa"
-            ></Image>
+            <Image src={data.productDetailPage[1].img} alt="sofa"></Image>
           </div>
           <div>
-            <Image
-              src="https://www.ikea.com/in/en/images/products/gammalbyn-2-seat-sofa-brown__0989120_pe818391_s5.jpg?f=s"
-              alt="sofa"
-            ></Image>
+            <Image src={data.productDetailPage[2].img} alt="sofa"></Image>
           </div>
           <div>
-            <Image
-              src="https://www.ikea.com/in/en/images/products/gammalbyn-2-seat-sofa-brown__0989121_pe818389_s5.jpg?f=s"
-              alt="sofa"
-            ></Image>
+            <Image src={data.productDetailPage[3].img} alt="sofa"></Image>
           </div>
         </div>
         <div className="productPriceDiv">
@@ -55,12 +79,12 @@ export const ProductDetails = () => {
           </p>
           <div className="priceSubdivs">
             <div>
-              <h2>GAMMALBYN</h2>
-              <p>2-seat sofa, brown</p>
+              <h2>{data.title}</h2>
+              <p>{data.dimensions}</p>
             </div>
             <div>
-              <h2>Rs.18,990</h2>
-              <p>Rs.21,990</p>
+              <h2>Rs.{Number(data.price).toLocaleString()}.00</h2>
+              <p>Rs.{(Number(data.price) + 5000).toLocaleString()}.00</p>
             </div>
           </div>
           <p style={{ margin: 0 }}>Price inc. of all taxes</p>
@@ -69,11 +93,13 @@ export const ProductDetails = () => {
             lasts
           </p>
           <p>
-            <span class="material-icons-outlined starIconSize">star</span>
-            <span class="material-icons-outlined starIconSize">star</span>
-            <span class="material-icons-outlined starIconSize ">star</span>
-            <span class="material-icons-outlined starIconSize">star</span>
-            <span class="material-icons-outlined starIconSize">star_half</span>
+            <span className="material-icons-outlined starIconSize">star</span>
+            <span className="material-icons-outlined starIconSize">star</span>
+            <span className="material-icons-outlined starIconSize ">star</span>
+            <span className="material-icons-outlined starIconSize">star</span>
+            <span className="material-icons-outlined starIconSize">
+              star_half
+            </span>
           </p>
           <div>
             <span>Eligible for delivery?</span>
@@ -84,11 +110,11 @@ export const ProductDetails = () => {
               <span className="material-icons-outlined productDetailsPageIcons">
                 local_shipping
               </span>{" "}
-              9 Available in stock
+              {data.sold} Available in stock
             </p>
           </div>
           <div>
-            <button className="addToShoppingCartBtn">
+            <button className="addToShoppingCartBtn" onClick={showDrawer1}>
               <span className="material-icons-outlined heartIconBtn">
                 favorite_border
               </span>{" "}
@@ -97,7 +123,7 @@ export const ProductDetails = () => {
           </div>
           <div>
             <p>
-              <span class="material-icons-outlined productDetailsPageIcons">
+              <span className="material-icons-outlined productDetailsPageIcons">
                 store
               </span>
               Check in-store stock
@@ -107,10 +133,9 @@ export const ProductDetails = () => {
       </div>
       <div className="productQualityDiv">
         <p>
-          Have a seta and watch a movie with family or enjoy a good book. You
-          sit really comfortably on this artificial leather sofa with polyster
-          sofa with polyester-filled removable cushons. Also avaliable as a
-          3-seat sofa.
+          Mix and match your choice of table top and legs – or choose this
+          ready-made combination. Strong and light-weight, made with a technique
+          that uses less raw materials, reducing the impact on the environment.
         </p>
         <p>Delivery and assembly prices not included</p>
       </div>
@@ -119,7 +144,7 @@ export const ProductDetails = () => {
           <h1>Product details</h1>
         </div>
         <div onClick={showDrawer}>
-          <span class="material-icons-outlined arrowPosition">
+          <span className="material-icons-outlined arrowPosition">
             arrow_forward
           </span>
         </div>
@@ -129,7 +154,7 @@ export const ProductDetails = () => {
           <h1>Measurements</h1>
         </div>
         <div>
-          <span class="material-icons-outlined arrowPosition">
+          <span className="material-icons-outlined arrowPosition">
             arrow_forward
           </span>
         </div>
@@ -149,11 +174,19 @@ export const ProductDetails = () => {
               <p>2-seat sofa</p>
               <h3>Rs.24,999</h3>
               <p>
-                <span class="material-icons-outlined starIconSize">star</span>
-                <span class="material-icons-outlined starIconSize">star</span>
-                <span class="material-icons-outlined starIconSize ">star</span>
-                <span class="material-icons-outlined starIconSize">star</span>
-                <span class="material-icons-outlined starIconSize">
+                <span className="material-icons-outlined starIconSize">
+                  star
+                </span>
+                <span className="material-icons-outlined starIconSize">
+                  star
+                </span>
+                <span className="material-icons-outlined starIconSize ">
+                  star
+                </span>
+                <span className="material-icons-outlined starIconSize">
+                  star
+                </span>
+                <span className="material-icons-outlined starIconSize">
                   star_half
                 </span>
               </p>
@@ -171,11 +204,19 @@ export const ProductDetails = () => {
               <p>2-seat sofa</p>
               <h3>Rs.15,999</h3>
               <p>
-                <span class="material-icons-outlined starIconSize">star</span>
-                <span class="material-icons-outlined starIconSize">star</span>
-                <span class="material-icons-outlined starIconSize ">star</span>
-                <span class="material-icons-outlined starIconSize">star</span>
-                <span class="material-icons-outlined starIconSize">
+                <span className="material-icons-outlined starIconSize">
+                  star
+                </span>
+                <span className="material-icons-outlined starIconSize">
+                  star
+                </span>
+                <span className="material-icons-outlined starIconSize ">
+                  star
+                </span>
+                <span className="material-icons-outlined starIconSize">
+                  star
+                </span>
+                <span className="material-icons-outlined starIconSize">
                   star_half
                 </span>
               </p>
@@ -193,11 +234,19 @@ export const ProductDetails = () => {
               <p>2-seat sofa</p>
               <h3>Rs.15,999</h3>
               <p>
-                <span class="material-icons-outlined starIconSize">star</span>
-                <span class="material-icons-outlined starIconSize">star</span>
-                <span class="material-icons-outlined starIconSize ">star</span>
-                <span class="material-icons-outlined starIconSize">star</span>
-                <span class="material-icons-outlined starIconSize">
+                <span className="material-icons-outlined starIconSize">
+                  star
+                </span>
+                <span className="material-icons-outlined starIconSize">
+                  star
+                </span>
+                <span className="material-icons-outlined starIconSize ">
+                  star
+                </span>
+                <span className="material-icons-outlined starIconSize">
+                  star
+                </span>
+                <span className="material-icons-outlined starIconSize">
                   star_half
                 </span>
               </p>
@@ -215,11 +264,19 @@ export const ProductDetails = () => {
               <p>2-seat sofa</p>
               <h3>Rs.10,990</h3>
               <p>
-                <span class="material-icons-outlined starIconSize">star</span>
-                <span class="material-icons-outlined starIconSize">star</span>
-                <span class="material-icons-outlined starIconSize ">star</span>
-                <span class="material-icons-outlined starIconSize">star</span>
-                <span class="material-icons-outlined starIconSize">
+                <span className="material-icons-outlined starIconSize">
+                  star
+                </span>
+                <span className="material-icons-outlined starIconSize">
+                  star
+                </span>
+                <span className="material-icons-outlined starIconSize ">
+                  star
+                </span>
+                <span className="material-icons-outlined starIconSize">
+                  star
+                </span>
+                <span className="material-icons-outlined starIconSize">
                   star_half
                 </span>
               </p>
@@ -237,11 +294,19 @@ export const ProductDetails = () => {
               <p>2-seat sofa</p>
               <h3>Rs.19,990</h3>
               <p>
-                <span class="material-icons-outlined starIconSize">star</span>
-                <span class="material-icons-outlined starIconSize">star</span>
-                <span class="material-icons-outlined starIconSize ">star</span>
-                <span class="material-icons-outlined starIconSize">star</span>
-                <span class="material-icons-outlined starIconSize">
+                <span className="material-icons-outlined starIconSize">
+                  star
+                </span>
+                <span className="material-icons-outlined starIconSize">
+                  star
+                </span>
+                <span className="material-icons-outlined starIconSize ">
+                  star
+                </span>
+                <span className="material-icons-outlined starIconSize">
+                  star
+                </span>
+                <span className="material-icons-outlined starIconSize">
                   star_half
                 </span>
               </p>
@@ -259,11 +324,19 @@ export const ProductDetails = () => {
               <p>2-seat sofa</p>
               <h3>Rs.19,999</h3>
               <p>
-                <span class="material-icons-outlined starIconSize">star</span>
-                <span class="material-icons-outlined starIconSize">star</span>
-                <span class="material-icons-outlined starIconSize ">star</span>
-                <span class="material-icons-outlined starIconSize">star</span>
-                <span class="material-icons-outlined starIconSize">
+                <span className="material-icons-outlined starIconSize">
+                  star
+                </span>
+                <span className="material-icons-outlined starIconSize">
+                  star
+                </span>
+                <span className="material-icons-outlined starIconSize ">
+                  star
+                </span>
+                <span className="material-icons-outlined starIconSize">
+                  star
+                </span>
+                <span className="material-icons-outlined starIconSize">
                   star_half
                 </span>
               </p>
@@ -281,11 +354,19 @@ export const ProductDetails = () => {
               <p>2-seat sofa</p>
               <h3>Rs.25,990</h3>
               <p>
-                <span class="material-icons-outlined starIconSize">star</span>
-                <span class="material-icons-outlined starIconSize">star</span>
-                <span class="material-icons-outlined starIconSize ">star</span>
-                <span class="material-icons-outlined starIconSize">star</span>
-                <span class="material-icons-outlined starIconSize">
+                <span className="material-icons-outlined starIconSize">
+                  star
+                </span>
+                <span className="material-icons-outlined starIconSize">
+                  star
+                </span>
+                <span className="material-icons-outlined starIconSize ">
+                  star
+                </span>
+                <span className="material-icons-outlined starIconSize">
+                  star
+                </span>
+                <span className="material-icons-outlined starIconSize">
                   star_half
                 </span>
               </p>
@@ -303,11 +384,19 @@ export const ProductDetails = () => {
               <p>Two-seat sofa</p>
               <h3>Rs.34,990</h3>
               <p>
-                <span class="material-icons-outlined starIconSize">star</span>
-                <span class="material-icons-outlined starIconSize">star</span>
-                <span class="material-icons-outlined starIconSize ">star</span>
-                <span class="material-icons-outlined starIconSize">star</span>
-                <span class="material-icons-outlined starIconSize">
+                <span className="material-icons-outlined starIconSize">
+                  star
+                </span>
+                <span className="material-icons-outlined starIconSize">
+                  star
+                </span>
+                <span className="material-icons-outlined starIconSize ">
+                  star
+                </span>
+                <span className="material-icons-outlined starIconSize">
+                  star
+                </span>
+                <span className="material-icons-outlined starIconSize">
                   star_half
                 </span>
               </p>
@@ -318,7 +407,7 @@ export const ProductDetails = () => {
       <div>
         <Drawer title="" placement="right" onClose={onClose} visible={visible}>
           <h1>Product details</h1>
-          <p>MRP Rs.30,786 (inc. tax)</p>
+          <p>MRP Rs.{Number(data.price).toLocaleString()}.00 (inc. tax)</p>
           <p>
             Durable metal springs in the seat give the sofa a springy comfort,
             allowing you to sit, relax and enjoy it for many years.
@@ -332,6 +421,23 @@ export const ProductDetails = () => {
           <div className="sideDrawerProductDetails">
             <h3>Assembly & documents</h3>
           </div>
+        </Drawer>
+        <Drawer
+          title=""
+          placement="right"
+          onClose={onClose1}
+          visible={visible1}
+        >
+          <h1>Added to cart.</h1>
+          <p>MRP Rs.{Number(data.price).toLocaleString()}.00 (inc. tax)</p>
+          <Link to="/cart">
+            <button
+              className="addToShoppingCartBtn"
+              style={{ paddingTop: "10px" }}
+            >
+              Go To Cart
+            </button>
+          </Link>
         </Drawer>
       </div>
     </div>
