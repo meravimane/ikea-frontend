@@ -1,11 +1,11 @@
 import '../Css/Login.css'
 import { useAuth0 } from "@auth0/auth0-react";
-import { useState } from 'react';
+
 export const Login = () => {
 
-    const { loginWithPopup, loginWithRedirect, logout, user, isAuthenticated } = useAuth0()
+    const { loginWithPopup, logout, user, isAuthenticated } = useAuth0()
 
-    const [stateAuth, setstateAuth] = useState(true);
+
 
     return <>
 
@@ -38,13 +38,9 @@ export const Login = () => {
                 <div id='inputDiv'>
 
                     {!isAuthenticated ? <div>
-                        <input id="Input" type="text" placeholder="Email or mobileno." required="true" />
-                        <p>Login <b> <u> with an OTP</u></b></p>
 
-                        <input id="Input" type="text" placeholder="Password" required="true" />
-                        <p> <b> <u> Fogot password</u></b></p>
 
-                        <button id="ContinueBtn" onClick={loginWithPopup}>Continue</button>
+                        <button id="ContinueBtn" onClick={loginWithPopup}>Continue to Login/Signin</button>
 
                     </div> : <button id="ContinueBtn" onClick={logout}>Logout</button>}
                 </div>
