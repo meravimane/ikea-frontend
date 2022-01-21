@@ -10,7 +10,7 @@ export const getProductLoading = () => ({
 });
 
 export const getDetailsByApi = (payload) => (dispatch) => {
-  fetch(`http://localhost:1234/products/${payload}`)
+  fetch(`https://ikea-clone-2022.herokuapp.com/products/${payload}`)
     .then((e) => e.json())
     .then((e) => dispatch(getProductDetails(e)));
 };
