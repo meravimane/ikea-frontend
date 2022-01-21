@@ -152,7 +152,7 @@ export const Home = () => {
         </div>
         <hr style={{ width: "80%", marginRight: "90px" }} />
         <br />
-        <h1 style={{ marginRight: 450 }}>Shop products for a more sustainable home</h1>
+        <h1 style={{ marginLeft: 150 }}>Shop products for a more sustainable home</h1>
         <br />
         <div className="top-categories-3" >
             <div className="categories-image">
@@ -178,9 +178,9 @@ export const Home = () => {
             </div>
         </div>
         <br />
-        <h1 style={{ marginRight: 650 }}>More ideas and inspiration</h1>
+        <h1 style={{ marginLeft: 150 }}>More ideas and inspiration</h1>
         <br />
-        <div className="button-flex" >
+        <div className="button-flex" style={{ marginLeft: 150 }}>
             <Button
                 shape="round"
                 style={{ margin: 10 }}
@@ -243,19 +243,19 @@ export const Home = () => {
             </Button>
         </div>
         <br />
-        <div className="pinterest">
+        <div className="pinterest" style={{ marginLeft: 150 }}>
             <img src="https://www.ikea.com/ext/ingkadam/m/5c5cbac57f37ac0a/original/PH177187-crop001.jpg?f=xs" style={{ width: 380 }} alt="" />
             <img src="https://www.ikea.com/ext/ingkadam/m/14b15f024cf780bf/original/PH159057-crop001.jpg?f=xs" style={{ width: 280, marginBottom: 140, margin: 10 }} alt="" />
             <img src="https://www.ikea.com/ext/ingkadam/m/74ade0c695386e17/original/PH177260-crop001.jpg?f=xs" style={{ width: 320, marginBottom: 105, margin: 10 }} alt="" />
         </div>
-        <div className="pinterest">
+        <div className="pinterest" style={{ marginLeft: 150 }}>
             <img src="https://www.ikea.com/ext/ingkadam/m/4b2a1bdf592253a9/original/PH169608-crop001.jpg?f=xs" style={{ width: 380, margin: "25px 10px 156px" }} alt="" />
             <img src="https://www.ikea.com/ext/ingkadam/m/168fb1fbf0763f5c/original/PH161331-crop001.jpg?f=xs" style={{ width: 280, margin: "-269px 10px 135px" }} alt="" />
             <img src="https://www.ikea.com/ext/ingkadam/m/48fd196fe587f56d/original/PH163322-crop002.jpg?f=xs" style={{ width: 320, margin: "-120px 9px 133px" }} alt="" />
         </div>
         <hr style={{ width: "80%", marginRight: "90px" }} />
         <br />
-        <img src={require("../assets/foot.jpg")} alt="" />
+        <img src={require("../assets/foot.jpg")} alt="" style={{ marginLeft: 150 }} />
         <br />
         <br />
     </div>

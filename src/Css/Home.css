@@ -3,7 +3,7 @@
 .main-image {
     margin-top: 40px;
     width: 80%;
-    margin-left: 75px;    
+    margin-left: 175px;    
 }
 
 /* width */
@@ -46,12 +46,13 @@
 
 .horizontal-flex>img{
     width: 350px;
+    margin: 0 4px;
 }
 
 .horizontal-flex>div{
     width: 350px;
     height: 150px;
-    margin: 0 10px;
+    margin: 0 4px;
 }
 .horizontal-flex>h2{
     width: 350px;
