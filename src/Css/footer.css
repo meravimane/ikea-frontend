@@ -101,7 +101,7 @@ footer{
         text-align: left;  
         margin-bottom: 0px;
         margin-right: 60px;
-        border: 1px solid red;
+        /* border: 1px solid red; */
       } 
       
   .footer-column p{

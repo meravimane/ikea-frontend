@@ -8,12 +8,27 @@ header{
 #navBar{
   display: flex;
   /* border: 1px solid red; */
+  /* border-bottom: 1px solid rgb(173, 173, 173); */
+  height: 80px;
+  /* width: 90%; */
+  margin: auto;
+  box-sizing: border-box;
 } 
 #hamburgerLeft{
   /* border: 1px solid blue; */
   margin-left: 7%;
-  margin-top: 8px;
+  margin-top:20px;
 
+  
+
+} 
+#bar{
+  width: 80%;
+  margin: auto;
+  margin-left: 15%;
+  border-top: 1px solid rgb(177, 177, 177);
+  
+  background-color: none;
 }
   
     .nav-container{
@@ -38,6 +53,7 @@ header{
       text-decoration: none;
       margin-left: 2.95rem;
       white-space: nowrap;
+      cursor: pointer;
     }
   
     .nav-container nav ul{
@@ -56,14 +72,15 @@ header{
     }  
     .search-container{
       width: 500px;
-      border: 1px solid rgb(0, 0, 0);
-      border-radius: 8px;
+      border: none;
+      border-radius: 20px;
       background-color: #F5F5F5
       
     } 
     #myInput{
-        width: 400px;
-        height: 30px;
+        width: 350px;
+        height: 40px;
+        border-radius: 15px;
         border: none;
         background-color: #F5F5F5
       
@@ -72,7 +89,7 @@ header{
       height: 25px;
       border: none;
       border-radius: 8px;
-      margin-left: 10%;
+      margin-left: 13%;
       
     }
   
@@ -85,7 +102,8 @@ header{
      size: 100px;
     } 
     #ikeaLogo{
-      width: 70px;
+      width: 80px;
+      cursor: pointer;
     }  
     #navbarLogo{
       background-color: white;
@@ -174,4 +192,50 @@ header{
     li{
       list-style-type:none;
       margin-top: 10px;
+    }  
+
+
+    @media(max-width : 600px){
+      #navLi{
+        display: none;
+        /* border: 1px solid blue; */
+      }
+      #searchbtn{
+      display: none;
+        
+      }
+      #myInput{
+        width: 200px;
+        height: 40px;
+        border-radius: 15px;
+        border: none;
+        padding-left: 20px;
+        margin-left: 10px;
+        background-color: #F5F5F5;
+  
+             
+    }
+
+    #searchLogo{
+      display: none;
+    }
+    #ikeaLogo{
+      /* width: 20px; */
+      display: none;
+      cursor: pointer;
+    }  
+   .icons-nav{
+  
+ 
+     /* margin: auto; */
+    
+     box-sizing: border-box;
+   }
+   #navbarLogo{
+     width: auto;
+   }
+   /* .icons-nav > Button{
+     width: 10px;
+   } */
+    
     }
