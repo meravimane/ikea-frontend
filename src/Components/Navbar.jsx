@@ -21,15 +21,15 @@ export const Navbar = () => {
         </div>
         <div className="nav-container">
 
-            <img src='https://www.ikea.com/in/en/static/ikea-logo.f7d9229f806b59ec64cb.svg' id="ikeaLogo" alt="" />
+            <Link to="/"> <img src='https://www.ikea.com/in/en/static/ikea-logo.f7d9229f806b59ec64cb.svg' id="ikeaLogo" alt="" /> </Link>
 
 
             <nav id='navLi'>
                 <ul>
-                    <li>Products</li>
-                    <li id="rooms">Rooms</li>
-                    <li>New at IKEA</li>
-                    <li>All offers</li>
+                    <li> <Link to="/products"> Products </Link> </li>
+                    <li id="rooms">  <Link to="/products"> Rooms </Link></li>
+                    <li> <Link to="/products">New at IKEA </Link></li>
+                    <li> <Link to="/products">All offers</Link></li>
                 </ul>
             </nav>
 
