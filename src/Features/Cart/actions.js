@@ -12,14 +12,14 @@ export const getCartItems = (payload) => ({
 });
 
 export const fetchCartItems = () => (dispatch) => {
-  fetch("http://localhost:1234/cart/")
+  fetch("https://ikea-clone-2022.herokuapp.com/cart/")
     .then((e) => e.json())
     .then((e) => dispatch(getCartItems(e)));
 };
 
 export const sendCartItems = (payload) => (dispatch) => {
   axios
-    .post("http://localhost:1234/cart/", {
+    .post("https://ikea-clone-2022.herokuapp.com/cart/", {
       product: payload,
     })
     .then((response) => {
@@ -28,7 +28,9 @@ export const sendCartItems = (payload) => (dispatch) => {
 };
 
 export const deleteCartItems = (payload) => (dispatch) => {
-  axios.delete(`http://localhost:1234/cart/${payload}`).then((res) => {
-    dispatch(fetchCartItems());
-  });
+  axios
+    .delete(`https://ikea-clone-2022.herokuapp.com/cart/${payload}`)
+    .then((res) => {
+      dispatch(fetchCartItems());
+    });
 };

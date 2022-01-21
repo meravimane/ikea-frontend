@@ -1,1 +1,181 @@
-//here you can start
+
+
+.main-image {
+    margin-top: 40px;
+    width: 80%;
+    margin-left: 75px;    
+}
+
+/* width */
+::-webkit-scrollbar {
+  height: 8px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #888; 
+}
+ 
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #000; 
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #000; 
+}
+
+
+#components-grid-demo-flex-align [class~='ant-row'] {
+  background: rgba(128, 128, 128, 0.08);
+}
+
+
+
+ .horizontal-menu{
+    width: 80%;
+    display: flex;
+    margin: 0 13%;
+    margin-top: 11px;
+    padding-bottom: 10px;
+    overflow-x:scroll;
+
+    cursor: pointer;
+}
+
+.horizontal-flex>img{
+    width: 350px;
+}
+
+.horizontal-flex>div{
+    width: 350px;
+    height: 150px;
+    margin: 0 10px;
+}
+.horizontal-flex>h2{
+    width: 350px;
+    height: 150px;
+    background-color: white;
+}
+
+.info{
+    width: 80%;
+    background-color: rgb(246, 166, 78);
+    margin-left: 20%;
+    margin: 10px 180px;
+    text-align: left;
+    padding: 20px;
+}
+
+.info-2{
+    width: 80%;
+    margin-left: 20%;
+    margin: 10px 180px;
+    text-align: left;
+    padding: 20px;
+}
+
+.info > button{
+    background-color: black;
+    color: white;
+    border-radius: 16px;
+    padding: 10px;
+    cursor: pointer;
+}
+
+.sale-button{
+    background-color: black;
+    color: white;
+    border-radius: 16px;
+    padding: 10px;
+    cursor: pointer;
+    
+}
+
+.texts {
+    text-align: left;
+    margin: 0 180px;
+}
+
+.shopnow{
+    display: flex;
+    margin: 10px 180px;
+    text-align: left;
+    
+}
+
+.shopnow-flex{
+    width: 80%;
+    margin: 10px;
+}
+
+.shopnow-flex > img{
+    width: 100%;
+    cursor: pointer;
+}
+
+.top-categories{
+    display: flex;
+    width: 80%;
+    cursor: pointer;
+    margin: 0 140px;
+    align-items: center;
+    overflow-x:scroll;
+}
+
+
+
+.top-categories-2{
+    display: flex;
+    width: 80%;
+    margin: 0 13%;
+    justify-content: space-evenly;
+    cursor: pointer;
+    
+}
+
+.top-categories-2 h2:hover{
+    color: #111111;
+    cursor: pointer;
+    text-decoration: underline;
+  }
+
+
+
+
+
+
+.card{
+    margin-left: 10%;
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.top-categories-3{
+    display: flex;
+    width: 80%;
+    margin: 0 140px;
+    overflow-x:scroll;
+    cursor: pointer;
+    align-items: center;
+    
+}
+
+.categories-image{
+    margin: 10px;
+}
+
+.pinterest>img{
+    margin-top: 10px;
+    cursor: pointer;
+}
+
+.button-flex{
+    width: 80%;
+    display:inline-flex;
+    overflow-x:scroll;
+    padding: 1%;
+
+}
+
