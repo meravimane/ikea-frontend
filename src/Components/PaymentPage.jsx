@@ -1,6 +1,7 @@
 import { Input, Select, Modal } from "antd";
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import { Link, Navigate } from "react-router-dom";
 import "../Css/PaymentPage.css";
 import { fetchCartItems, getCartLoading } from "../Features/Cart/actions";
 
@@ -15,6 +16,7 @@ export const PaymentPage = () => {
 
   const handleOk = () => {
     setIsModalVisible(false);
+    return <Navigate to="/"></Navigate>;
   };
 
   const handleCancel = () => {
@@ -263,7 +265,9 @@ export const PaymentPage = () => {
               onOk={handleOk}
               onCancel={handleCancel}
             >
-              <h1>Order Placed Successfully.</h1>
+              <Link to="/">
+                <h1>Order Placed Successfully.</h1>
+              </Link>
             </Modal>
           </div>
         </div>

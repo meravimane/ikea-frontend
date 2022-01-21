@@ -1,5 +1,6 @@
 .cartHeader h1 {
   text-align: center;
+  margin-top: 20px;
 }
 .cartProductsDiv {
   width: 800px;
