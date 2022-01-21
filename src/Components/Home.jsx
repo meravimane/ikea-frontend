@@ -132,7 +132,7 @@ export const Home = () => {
             <button className="sale-button">Read More</button>
 
         </div>
-        <hr style={{ width: "80%", marginRight: "90px" }} />
+        <hr style={{ width: "80%", marginLeft: "150px" }} />
         <br />
         <div className="top-categories-2">
 
@@ -150,7 +150,7 @@ export const Home = () => {
             <h2>Explore top Sellers</h2>
             <h2>Explore food at IKEA</h2>
         </div>
-        <hr style={{ width: "80%", marginRight: "90px" }} />
+        <hr style={{ width: "80%", marginLeft: "150px" }} />
         <br />
         <h1 style={{ marginLeft: 150 }}>Shop products for a more sustainable home</h1>
         <br />
@@ -253,7 +253,7 @@ export const Home = () => {
             <img src="https://www.ikea.com/ext/ingkadam/m/168fb1fbf0763f5c/original/PH161331-crop001.jpg?f=xs" style={{ width: 280, margin: "-269px 10px 135px" }} alt="" />
             <img src="https://www.ikea.com/ext/ingkadam/m/48fd196fe587f56d/original/PH163322-crop002.jpg?f=xs" style={{ width: 320, margin: "-120px 9px 133px" }} alt="" />
         </div>
-        <hr style={{ width: "80%", marginRight: "90px" }} />
+        <hr style={{ width: "80%", marginLeft: "150px" }} />
         <br />
         <img src={require("../assets/foot.jpg")} alt="" style={{ marginLeft: 150 }} />
         <br />
