@@ -6,12 +6,19 @@ import reportWebVitals from "./reportWebVitals";
 import { BrowserRouter } from "react-router-dom";
 import { Provider } from "react-redux";
 import { store } from "./Store/Store";
+import { Auth0Provider } from "@auth0/auth0-react";
 
 ReactDOM.render(
   <React.StrictMode>
     <BrowserRouter>
       <Provider store={store}>
-        <App />
+        <Auth0Provider
+          domain="ikeaclone.us.auth0.com"
+          clientId="BcnwQurpTd2MuB2iPlwiOqPIHEfYXxIM"
+          redirectUri={window.location.origin}
+        >
+          <App />
+        </Auth0Provider>
       </Provider>
     </BrowserRouter>
   </React.StrictMode>,

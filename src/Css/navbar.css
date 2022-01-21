@@ -1,0 +1,177 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+header{
+    max-width: 112rem;
+    margin: 0 auto;
+    box-sizing: border-box;
+  }
+  
+#navBar{
+  display: flex;
+  /* border: 1px solid red; */
+} 
+#hamburgerLeft{
+  /* border: 1px solid blue; */
+  margin-left: 7%;
+  margin-top: 8px;
+
+}
+  
+    .nav-container{
+    
+      display: flex;
+      align-items: center;
+      width: 80%;
+      margin: auto;
+      /* border: 1px solid red; */
+    }
+  
+    .nav-container .logo{
+      width: 90px;
+      height: 36px;
+      padding-top: 1.75rem;
+      padding-bottom: 1.75rem;
+    }
+  
+    .nav-container nav{
+      font-size: 12px;
+      font-weight: 700;
+      text-decoration: none;
+      margin-left: 2.95rem;
+      white-space: nowrap;
+    }
+  
+    .nav-container nav ul{
+      padding: 0;
+      margin: 0 0 2px 0;
+    }
+  
+    .nav-container nav li{
+      list-style-type: none;
+      display: inline-block; /* avoid bullet style */
+      margin-right: 26px;
+    }
+  
+    .nav-container nav li:hover{
+      text-decoration: underline;
+    }  
+    .search-container{
+      width: 500px;
+      border: 1px solid rgb(0, 0, 0);
+      border-radius: 8px;
+      background-color: #F5F5F5
+      
+    } 
+    #myInput{
+        width: 400px;
+        height: 30px;
+        border: none;
+        background-color: #F5F5F5
+      
+    }
+    #searchbtn{
+      height: 25px;
+      border: none;
+      border-radius: 8px;
+      margin-left: 10%;
+      
+    }
+  
+    .icons-nav{
+      display: flex;
+      gap: 20px ;
+    } 
+    .icons-nav>span{
+      
+     size: 100px;
+    } 
+    #ikeaLogo{
+      width: 70px;
+    }  
+    #navbarLogo{
+      background-color: white;
+      color: black;
+      border: 1px solid white;
+    } 
+
+    /* ------------- LoginDrawer ---------- */
+    #logindrawer{
+      background-color: #0058A3;
+    }
+    #userPalate{
+      /* border: 1px solid yellow; */
+      margin-top: 25%;
+      width: 230px;
+    }
+    #userName{
+      font-size: 23px;
+      font-weight: bolder;
+      color: white;
+      margin-top: 50%;
+     
+    }
+    #loginBtnDiv{
+      /* border: 1px solid red; */
+      margin-top: 30%;
+
+      
+      width: 50px;
+      /* position: flex-end; */
+    }
+    #loginBtn{
+   
+     font-size: 12px;
+      text-align: center;
+      
+      border-radius: 15px;
+     color: black;
+    } 
+
+    #loginDiv1{
+      height: 150px;
+      display: flex;
+      background-color: #0058A3;
+      border: 1px solid rgb(182, 182, 182);
+      box-sizing: border-box;
+      padding-left: 10px;
+      box-sizing: border-box;
+    }
+    #loginDiv2{
+      height: 110px;
+      color: white;
+      background-color: #0058A3;
+      border-bottom: 1px solid rgb(197, 197, 197);
+      padding-top: 10px;
+      padding-left: 10px;
+      font-size: 10px;
+  
+    } 
+    #loginDiv3{
+      height: 120px;
+      color: white;
+      background-color: #0058A3;
+      border-bottom: 1px solid rgb(197, 197, 197);
+  
+    } 
+    #subheadingColor{
+      color: white;
+      font-size: 13px;
+      text-decoration: none;
+    }
+    #contentDiv{
+      display: flex;
+    }
+    #arrowBtn{
+      border-radius: 60%;
+      font-size: 20px;
+      width: 30px;
+      text-align: center;
+      padding-bottom: 5px;
+      color: black;
+      margin-right: 14px;
+      border: none;
+      
+    }
+    li{
+      list-style-type:none;
+      margin-top: 10px;
+    }
