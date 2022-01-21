@@ -95,12 +95,7 @@ export const PaymentPage = () => {
 
   return (
     <div>
-      <div className="paymentPageLogoContainer">
-        <img
-          src="https://prod-ibes-public-files.s3-eu-west-1.amazonaws.com/image/logo.png"
-          alt="ikea logo"
-        ></img>
-      </div>
+      <div className="paymentPageLogoContainer"></div>
       <div className="mainPaymentPageContainer">
         <div>
           <div>

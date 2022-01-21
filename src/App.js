@@ -6,10 +6,13 @@ import { ProductDetails } from "./Components/ProductDetails";
 import { Cart } from "./Components/Cart";
 import { Route, Routes } from "react-router-dom";
 import { Product } from "./Components/Products";
+import { Login } from "./Components/Login";
+import { Navbar } from "./Components/Navbar";
 
 function App() {
   return (
     <div className="App">
+      <Navbar></Navbar>
       <Routes>
         <Route path="/cart" element={<Cart></Cart>}></Route>
         <Route path="/payment" element={<PaymentPage></PaymentPage>}></Route>
@@ -19,7 +22,7 @@ function App() {
         ></Route>
 
         <Route path="/products" element={<Product />}></Route>
-
+        <Route path="/login" element={<Login></Login>}></Route>
         <Route
           path="*"
           element={
