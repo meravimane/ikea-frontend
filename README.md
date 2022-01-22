@@ -1,70 +1,43 @@
-# Getting Started with Create React App
+![ikea](https://github.com/meravimane/ikea-frontend/blob/30e95af544f4fbcd2b27280b8826a3e70e20e374/public/images/ikea.png)
+**IKEA is a Swedish-founded, Dutch-headquartered multinational conglomerate that designs and sells ready-to-assemble furniture, kitchen appliances and home accessories, among other goods and home services.**
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+#
+#### Tech Stack
+ ``` sh
+ Client: React Js, Redux, AntDesign, Styled Components.
+ Server: Node, Express, MongoDB, Mongoose.
+ ```
+ #### Deployed Link 
+ [Ikea-Clone](https://ikea-clone-omega.vercel.app/)
+ 
+ #### Features
+- User Authentication
+- User can browse products on the products page according to the various filters/sort options.
+- User can add products to cart and have options for home delivery or store pickup.
 
-## Available Scripts
+#### Landing Page
+![ikea](https://github.com/meravimane/ikea-frontend/blob/30e95af544f4fbcd2b27280b8826a3e70e20e374/public/images/homepage.JPG)
 
-In the project directory, you can run:
+#### Login Page
+![ikea](https://github.com/meravimane/ikea-frontend/blob/30e95af544f4fbcd2b27280b8826a3e70e20e374/public/images/login.JPG)
 
-### `npm start`
+#### Product Page
+![ikea](https://github.com/meravimane/ikea-frontend/blob/30e95af544f4fbcd2b27280b8826a3e70e20e374/public/images/product%20page.png)
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+#### Product Details Page
+![ikea](https://github.com/meravimane/ikea-frontend/blob/30e95af544f4fbcd2b27280b8826a3e70e20e374/public/images/productdetails.png)
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+#### Cart Page
+![ikea](https://github.com/meravimane/ikea-frontend/blob/30e95af544f4fbcd2b27280b8826a3e70e20e374/public/images/cartpage.png)
 
-### `npm test`
+#### Details Page
+![ikea](https://github.com/meravimane/ikea-frontend/blob/30e95af544f4fbcd2b27280b8826a3e70e20e374/public/images/paymentpage.png)
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+#### Team Members
+- [Saurabh Nimkande](https://github.com/saurabhnimkande)
+- [Pabitra Saikia](https://github.com/ipabitrasaikia1)
+- [Ravi Mane](https://github.com/meravimane)
+- [Dinesh Kumar](https://github.com/dinu1763)
 
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+#### Backend Repository
+[Ikea-Backend](https://github.com/saurabhnimkande/ikea-backend)
