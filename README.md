@@ -40,4 +40,4 @@
 - [Dinesh Kumar](https://github.com/dinu1763)
 
 #### Backend Repository
-[Ikea-Backend](https://github.com/saurabhnimkande/ikea-backend)
+[Ikea-Backend](https://github.com/meravimane/ikea-backend)
