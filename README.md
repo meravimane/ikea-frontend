@@ -1,6 +1,8 @@
-**IKEA is a Swedish-founded, Dutch-headquartered multinational conglomerate that designs and sells ready-to-assemble furniture, kitchen appliances and home accessories, among other goods and home services.**
-![ikea](https://github.com/meravimane/ikea-frontend/blob/30e95af544f4fbcd2b27280b8826a3e70e20e374/public/images/ikea.png)
+# Ikea-clone
+This is the clone of Ikea.com ,which we made during the UNIT 5 construct week. We made this Clone functional.
 
+![ikea](https://github.com/meravimane/ikea-frontend/blob/30e95af544f4fbcd2b27280b8826a3e70e20e374/public/images/ikea.png)
+**IKEA is a Swedish-founded, Dutch-headquartered multinational conglomerate that designs and sells ready-to-assemble furniture, kitchen appliances and home accessories, among other goods and home services.**
 
 #
 #### Tech Stack
